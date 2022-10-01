@@ -8,9 +8,25 @@
 [node name="Intermission" type="Node"]
 script = ExtResource( 1 )
 _dialogue = "Alright Box baby! You know the rules here! 10 seconds on the clock to knock out Crate! Left and right to dodge, up to punch! Let's do this baby!
-Great start Box baby! You got this! Put all of that training to good use!
-Nice going Box baby! He's start to slow down. Now's your chance!
-You've got him on the ropes Box baby! Time to finish this!
+Great start, Box baby! You got this! Put all of that training to good use!
+Keep it up, Box baby! Just remember what your ol' coach Shoebox taught ya! Left! Right! Up! Repeat!
+Nice going, Box baby! He's starting to slow down. Now's your chance!
+You've got him on the ropes, Box baby! Time to finish this!
+He'll crumble any minute now! Stick and move, Box baby!
+Aaany minute now!
+...any minute now?
+Hm... Y'know, I'm starting to get the feeling that taking a break every 10 seconds wasn't the best idea for a boxing match.
+Are ya winning, son? I can't tell anymore.
+Join the Alex Garbus Fun Club today! Box.
+My expectations were low for you, but wow! How is this still not over yet?
+It's a beautiful day outside. The birds are signing. The flowers are blooming. On days like these, kids like you... should hurry up and win!
+You were expecting somebody else, but it was I! Shoebox!
+It seems today, that all you see. Is violence in boxing and boxing on TV.
+Are you getting these references or should I stop making them? I think I'm gonna stop.
+...
+... ...
+... ... ...
+Hi! Alex Garbus here! Thanks for playing this far! Unfortunately, you've reached the end of the haha funny dialogue. I hope you enjoyed it!
 ..."
 
 [node name="Sprite" type="Sprite" parent="."]
