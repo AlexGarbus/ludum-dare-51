@@ -19,6 +19,9 @@ namespace LudumDare51.Actors
         }
 
         [Export(PropertyHint.Range, "0,100,or_greater")]
+        private int _healAmount;
+
+        [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _punchDistance;
 
         [Export(PropertyHint.Range, "0,100,or_greater")]
@@ -52,7 +55,7 @@ namespace LudumDare51.Actors
 
         private bool _isPunchFlipped = false;
 
-        private int _health;
+        private int _health = 0;
         private int _maxHealth;
 
         public override void _Ready()
@@ -62,6 +65,7 @@ namespace LudumDare51.Actors
             _fistPivot = GetNode<Position2D>("%FistPivot");
 
             _idlePosition = Position;
+            _health += _healAmount;
             _maxHealth = FightData.MAX_HEALTH;
 
             Connect("area_entered", this, nameof(OnAreaEntered));

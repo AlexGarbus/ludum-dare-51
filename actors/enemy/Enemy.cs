@@ -12,7 +12,7 @@ namespace LudumDare51.Actors
         {
             base._Ready();
 
-            Health = _fightData.EnemyHealth;
+            Health += _fightData.EnemyHealth;
         }
 
         public override void _Process(float delta)

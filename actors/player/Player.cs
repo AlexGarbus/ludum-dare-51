@@ -15,7 +15,7 @@ namespace LudumDare51.Actors
         {
             base._Ready();
 
-            Health = _fightData.PlayerHealth;
+            Health += _fightData.PlayerHealth;
         }
 
         public override void _UnhandledInput(InputEvent @event)
