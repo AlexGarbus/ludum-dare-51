@@ -12,22 +12,37 @@ namespace LudumDare51
 
         private FightData _fightData;
 
+        private Timer _fightEndDelay;
+
         public override void _Ready()
         {
             _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
+            _fightEndDelay = GetNode<Timer>("%FightEndDelay");
             Timer fightTimer = GetNode<Timer>("%FightTimer");
             Player player = GetNode<Player>("%Player");
             Enemy enemy = GetNode<Enemy>("%Enemy");
 
             _fightData.Round++;
 
-            fightTimer.Connect("timeout", this, nameof(OnFightTimerTimeout));
-
             GetNode<FightDisplay>("%FightDisplay").Initialize(player, enemy, fightTimer);
+
+            GetTree().Paused = true;
+        }
+
+        private void OnFightStartDelayTimeout()
+        {
+            GetTree().Paused = false;
         }
 
         private void OnFightTimerTimeout()
         {
+            GetTree().Paused = true;
+            _fightEndDelay.Start();
+        }
+
+        private void OnFightEndDelayTimeout()
+        {
+            GetTree().Paused = false;
             GetTree().ChangeScene(INTERMISSION_PATH);
         }
     }

@@ -36,3 +36,17 @@ unique_name_in_owner = true
 wait_time = 10.0
 one_shot = true
 autostart = true
+
+[node name="FightStartDelay" type="Timer" parent="."]
+pause_mode = 2
+one_shot = true
+autostart = true
+
+[node name="FightEndDelay" type="Timer" parent="."]
+pause_mode = 2
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="FightTimer" to="." method="OnFightTimerTimeout"]
+[connection signal="timeout" from="FightStartDelay" to="." method="OnFightStartDelayTimeout"]
+[connection signal="timeout" from="FightEndDelay" to="." method="OnFightEndDelayTimeout"]
