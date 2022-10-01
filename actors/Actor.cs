@@ -1,3 +1,4 @@
+using LudumDare51.AutoLoad;
 using Godot;
 using System;
 
@@ -16,9 +17,6 @@ namespace LudumDare51.Actors
             KNOCKBACK,
             DEFEAT,
         }
-
-        [Export(PropertyHint.Range, "1,100,or_greater")]
-        private int _maxHealth = 10;
 
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _punchDistance;
@@ -46,6 +44,8 @@ namespace LudumDare51.Actors
 
         protected AnimationPlayer _animationPlayer;
 
+        protected FightData _fightData;
+
         protected Position2D _fistPivot;
 
         protected Vector2 _idlePosition;
@@ -53,14 +53,16 @@ namespace LudumDare51.Actors
         private bool _isPunchFlipped = false;
 
         private int _health;
+        private int _maxHealth;
 
         public override void _Ready()
         {
             _animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
+            _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
             _fistPivot = GetNode<Position2D>("%FistPivot");
 
             _idlePosition = Position;
-            Health = _maxHealth;
+            _maxHealth = FightData.MAX_HEALTH;
 
             Connect("area_entered", this, nameof(OnAreaEntered));
         }

@@ -24,6 +24,11 @@ config/name="Ludum Dare 51"
 run/main_scene="res://fight/fight.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+AutoLoadPaths="*res://autoload/AutoLoadPaths.cs"
+FightData="*res://autoload/FightData.cs"
+
 [display]
 
 window/size/width=1920

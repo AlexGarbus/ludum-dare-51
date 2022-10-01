@@ -11,6 +11,13 @@ namespace LudumDare51.Actors
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _dodgeTime;
 
+        public override void _Ready()
+        {
+            base._Ready();
+
+            Health = _fightData.PlayerHealth;
+        }
+
         public override void _UnhandledInput(InputEvent @event)
         {
             if (_state != State.IDLE)

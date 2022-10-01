@@ -1,4 +1,5 @@
 using LudumDare51.Actors;
+using LudumDare51.AutoLoad;
 using LudumDare51.UserInterface;
 using Godot;
 using System;
@@ -9,13 +10,17 @@ namespace LudumDare51
     {
         private const int FIGHT_TIME = 10;
 
+        private FightData _fightData;
+
         private SceneTreeTimer _fightTimer;
 
         public override void _Ready()
         {
+            _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
             Player player = GetNode<Player>("%Player");
             Enemy enemy = GetNode<Enemy>("%Enemy");
 
+            _fightData.Round++;
             _fightTimer = GetTree().CreateTimer(FIGHT_TIME, false);
 
             GetNode<FightDisplay>("%FightDisplay").Initialize(player, enemy, _fightTimer);
