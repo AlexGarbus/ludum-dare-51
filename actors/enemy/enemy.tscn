@@ -221,9 +221,11 @@ texture = ExtResource( 4 )
 position = Vector2( 0, -48 )
 
 [node name="FistLeft" parent="FistPivot" index="0"]
+z_index = 1
 texture = ExtResource( 3 )
 
 [node name="FistRight" parent="FistPivot" index="1"]
+z_index = 1
 collision_layer = 2
 collision_mask = 1
 

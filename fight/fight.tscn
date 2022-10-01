@@ -14,16 +14,19 @@ __meta__ = {
 }
 
 [node name="Background" type="Sprite" parent="."]
+z_index = -100
 texture = ExtResource( 5 )
 centered = false
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 unique_name_in_owner = true
 position = Vector2( 960, 750 )
+z_index = 1
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 unique_name_in_owner = true
 position = Vector2( 960, 350 )
+z_index = -1
 
 [node name="FightDisplay" parent="." instance=ExtResource( 4 )]
 unique_name_in_owner = true

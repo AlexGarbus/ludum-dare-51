@@ -267,7 +267,11 @@ _dodgeTime = 0.5
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2( 0, 48 )
 
+[node name="FistLeft" parent="FistPivot" index="0"]
+z_index = -1
+
 [node name="FistRight" parent="FistPivot" index="1"]
+z_index = -1
 collision_layer = 1
 collision_mask = 2
 
