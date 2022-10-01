@@ -21,7 +21,7 @@ centered = false
 [node name="Player" parent="." instance=ExtResource( 1 )]
 unique_name_in_owner = true
 position = Vector2( 960, 750 )
-z_index = 1
+z_index = 2
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 unique_name_in_owner = true
