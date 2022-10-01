@@ -32,3 +32,15 @@ unique_name_in_owner = true
 margin_left = 1009.0
 margin_right = 1920.0
 margin_bottom = 73.0
+
+[node name="RoundLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -31.5
+margin_top = 80.0
+margin_right = 31.5
+margin_bottom = 94.0
+text = "Round 0"
+align = 1
+valign = 1
