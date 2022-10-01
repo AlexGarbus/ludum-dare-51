@@ -12,6 +12,8 @@ namespace LudumDare51
         [Export(PropertyHint.MultilineText)]
         private string _dialogue;
 
+        private bool _fightLoaded = false;
+
         private string[] _lines;
 
         private DialogueBox _dialogueBox;
@@ -30,8 +32,9 @@ namespace LudumDare51
 
         public override void _UnhandledInput(InputEvent @event)
         {
-            if (_inputLabel.Visible && (@event is InputEventKey || @event is InputEventJoypadButton))
+            if (_inputLabel.Visible && !_fightLoaded && (@event is InputEventKey || @event is InputEventJoypadButton))
             {
+                _fightLoaded = true;
                 GetTree().ChangeScene(FIGHT_PATH);
             }
         }
