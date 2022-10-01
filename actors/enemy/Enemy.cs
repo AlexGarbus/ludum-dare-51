@@ -25,7 +25,10 @@ namespace LudumDare51.Actors
 
         public override void _ExitTree()
         {
-            _fightData.EnemyHealth = Health;
+            if (Health > 0)
+            {
+                _fightData.EnemyHealth = Health;
+            }
         }
     }
 }

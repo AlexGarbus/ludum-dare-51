@@ -45,8 +45,11 @@ autostart = true
 [node name="FightEndDelay" type="Timer" parent="."]
 pause_mode = 2
 unique_name_in_owner = true
+wait_time = 2.0
 one_shot = true
 
+[connection signal="HealthChanged" from="Player" to="." method="OnActorHealthChanged"]
+[connection signal="HealthChanged" from="Enemy" to="." method="OnActorHealthChanged"]
 [connection signal="timeout" from="FightTimer" to="." method="OnFightTimerTimeout"]
 [connection signal="timeout" from="FightStartDelay" to="." method="OnFightStartDelayTimeout"]
 [connection signal="timeout" from="FightEndDelay" to="." method="OnFightEndDelayTimeout"]

@@ -65,7 +65,7 @@ namespace LudumDare51.Actors
             _fistPivot = GetNode<Position2D>("%FistPivot");
 
             _idlePosition = Position;
-            _health += _healAmount;
+            Health += _healAmount;
             _maxHealth = FightData.MAX_HEALTH;
 
             Connect("area_entered", this, nameof(OnAreaEntered));
@@ -107,6 +107,9 @@ namespace LudumDare51.Actors
         protected void Defeat()
         {
             _state = State.DEFEAT;
+            _animationPlayer.Play("defeat");
+
+            GetNode<CollisionShape2D>("%CollisionShape2D").SetDeferred("disabled", true);
         }
 
         protected void FlipFistPivot(bool isFlipped)

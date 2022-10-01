@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actors/actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/player/Player.cs" type="Script" id=2]
@@ -52,6 +52,106 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "defeat"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("FistPivot/FistLeft:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 2.51, 1 ),
+"update": 3,
+"values": [ Vector2( -180, 0 ), Vector2( -180, 0 ), Vector2( -180, 120 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FistPivot/FistLeft:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("FistPivot/FistRight:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 2.51, 1 ),
+"update": 3,
+"values": [ Vector2( 180, 0 ), Vector2( 180, 0 ), Vector2( 180, 120 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("FistPivot/FistRight:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 3,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Body:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 3,
+"values": [ 0.0, 90.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Body:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.2, 0.7, 1.2 ),
+"transitions": PoolRealArray( 1, 2.5, 1 ),
+"update": 3,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, 60 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -278,6 +378,7 @@ collision_mask = 2
 [node name="AnimationPlayer" parent="." index="3"]
 autoplay = "idle"
 anims/RESET = SubResource( 1 )
+anims/defeat = SubResource( 7 )
 anims/dodge = SubResource( 4 )
 anims/idle = SubResource( 2 )
 anims/knockback = SubResource( 6 )
