@@ -22,5 +22,10 @@ namespace LudumDare51.Actors
                 Punch(Vector2.Down);
             }
         }
+
+        public override void _ExitTree()
+        {
+            _fightData.EnemyHealth = Health;
+        }
     }
 }
