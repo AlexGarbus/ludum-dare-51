@@ -25,7 +25,7 @@ namespace LudumDare51.UserInterface
             _roundLabel = GetNode<Label>("%RoundLabel");
         }
 
-        public void Initialize(Player player, Enemy enemy, SceneTreeTimer fightTimer)
+        public void Initialize(Player player, Enemy enemy, Timer fightTimer)
         {
             _playerHealthBar.Initialize(player);
             _enemyHealthBar.Initialize(enemy);

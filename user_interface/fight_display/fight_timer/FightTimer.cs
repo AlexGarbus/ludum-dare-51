@@ -7,7 +7,7 @@ namespace LudumDare51.UserInterface
     {
         private Label _timeLabel;
 
-        private SceneTreeTimer _timer;
+        private Timer _timer;
 
         public override void _Ready()
         {
@@ -18,13 +18,19 @@ namespace LudumDare51.UserInterface
         {
             if (_timer != null)
             {
-                _timeLabel.Text = ((int)_timer.TimeLeft).ToString();
+                SetTimeLabelText();
             }
         }
 
-        public void Initialize(SceneTreeTimer timer)
+        public void Initialize(Timer timer)
         {
             _timer = timer;
+            SetTimeLabelText();
+        }
+
+        private void SetTimeLabelText()
+        {
+            _timeLabel.Text = ((int)_timer.TimeLeft).ToString();
         }
     }
 }

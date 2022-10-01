@@ -10,19 +10,17 @@ namespace LudumDare51
     {
         private const string INTERMISSION_PATH = "res://intermission/intermission.tscn";
 
-        private const int FIGHT_TIME = 10;
-
         private FightData _fightData;
 
         public override void _Ready()
         {
             _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
+            Timer fightTimer = GetNode<Timer>("%FightTimer");
             Player player = GetNode<Player>("%Player");
             Enemy enemy = GetNode<Enemy>("%Enemy");
 
             _fightData.Round++;
 
-            SceneTreeTimer fightTimer = GetTree().CreateTimer(FIGHT_TIME, false);
             fightTimer.Connect("timeout", this, nameof(OnFightTimerTimeout));
 
             GetNode<FightDisplay>("%FightDisplay").Initialize(player, enemy, fightTimer);
