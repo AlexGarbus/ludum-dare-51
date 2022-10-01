@@ -8,9 +8,13 @@
 extents = Vector2( 4, 4 )
 
 [node name="Actor" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource( 1 )
 _punchDistance = 200.0
 _punchTime = 0.5
+_knockbackDistance = 100.0
+_knockbackTime = 0.5
 
 [node name="Body" type="Polygon2D" parent="."]
 polygon = PoolVector2Array( 10, 15, -10, 15, -10, -15, 10, -15 )
@@ -27,6 +31,8 @@ polygon = PoolVector2Array( -4, -4, 4, -4, 4, 4, -4, 4 )
 
 [node name="FistRight" type="Area2D" parent="FistPivot"]
 position = Vector2( 18, 0 )
+collision_layer = 0
+collision_mask = 0
 
 [node name="Fist" type="Polygon2D" parent="FistPivot/FistRight"]
 polygon = PoolVector2Array( -4, -4, 4, -4, 4, 4, -4, 4 )

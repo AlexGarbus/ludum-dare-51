@@ -10,7 +10,7 @@ namespace LudumDare51.Actors
             IDLE,
             DODGE,
             PUNCH,
-            HIT,
+            KNOCKBACK,
         }
 
         [Export(PropertyHint.Range, "1,100,or_greater")]
@@ -21,6 +21,12 @@ namespace LudumDare51.Actors
 
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _punchTime;
+
+        [Export(PropertyHint.Range, "0,100,or_greater")]
+        private float _knockbackDistance;
+
+        [Export(PropertyHint.Range, "0,100,or_greater")]
+        private float _knockbackTime;
 
         public int Health
         {
@@ -50,6 +56,8 @@ namespace LudumDare51.Actors
 
             _idlePosition = Position;
             Health = _maxHealth;
+
+            Connect("area_entered", this, nameof(OnAreaEntered));
         }
         
         protected void Move(Vector2 displacement, float time)
@@ -58,7 +66,7 @@ namespace LudumDare51.Actors
             tween.TweenProperty(this, "position", _idlePosition + displacement, time);
             tween.TweenCallback(_animationPlayer, "play", new Godot.Collections.Array("idle", time));
             tween.TweenProperty(this, "position", _idlePosition, time);
-            tween.TweenCallback(this, "Idle");
+            tween.TweenCallback(this, nameof(Idle));
         }
 
         protected void Idle()
@@ -77,6 +85,14 @@ namespace LudumDare51.Actors
             Move(_punchDistance * direction, _punchTime);
         }
 
+        protected void Knockback(Vector2 direction)
+        {
+            _state = State.KNOCKBACK;
+            _animationPlayer.Play("knockback", _knockbackTime);
+
+            Move(_knockbackDistance * direction, _knockbackTime);
+        }
+
         protected void FlipFistPivot(bool isFlipped)
         {
             Vector2 scale = new Vector2(1, 1);
@@ -85,6 +101,13 @@ namespace LudumDare51.Actors
                 scale.x = -1;
             }
             _fistPivot.Scale = scale;
+        }
+
+        private void OnAreaEntered(Area2D area)
+        {
+            Health--;
+            Knockback((GlobalPosition - area.GlobalPosition).Normalized());
+            GD.Print(area.Name);
         }
     }
 }
