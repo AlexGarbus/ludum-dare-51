@@ -8,11 +8,11 @@ namespace LudumDare51
 {
     public class Fight : Node
     {
+        private const string INTERMISSION_PATH = "res://intermission/intermission.tscn";
+
         private const int FIGHT_TIME = 10;
 
         private FightData _fightData;
-
-        private SceneTreeTimer _fightTimer;
 
         public override void _Ready()
         {
@@ -21,9 +21,16 @@ namespace LudumDare51
             Enemy enemy = GetNode<Enemy>("%Enemy");
 
             _fightData.Round++;
-            _fightTimer = GetTree().CreateTimer(FIGHT_TIME, false);
 
-            GetNode<FightDisplay>("%FightDisplay").Initialize(player, enemy, _fightTimer);
+            SceneTreeTimer fightTimer = GetTree().CreateTimer(FIGHT_TIME, false);
+            fightTimer.Connect("timeout", this, nameof(OnFightTimerTimeout));
+
+            GetNode<FightDisplay>("%FightDisplay").Initialize(player, enemy, fightTimer);
+        }
+
+        private void OnFightTimerTimeout()
+        {
+            GetTree().ChangeScene(INTERMISSION_PATH);
         }
     }
 }
