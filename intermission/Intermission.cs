@@ -15,10 +15,12 @@ namespace LudumDare51
         private string[] _lines;
 
         private DialogueBox _dialogueBox;
+        private Label _inputLabel;
 
         public override void _Ready()
         {
             _dialogueBox = GetNode<DialogueBox>("%DialogueBox");
+            _inputLabel = GetNode<Label>("%InputLabel");
 
             _lines = _dialogue.Split('\n');
 
@@ -26,9 +28,17 @@ namespace LudumDare51
             _dialogueBox.Print(_lines[round >= _lines.Length ? _lines.Length - 1 : round]);
         }
 
+        public override void _UnhandledInput(InputEvent @event)
+        {
+            if (_inputLabel.Visible && (@event is InputEventKey || @event is InputEventJoypadButton))
+            {
+                GetTree().ChangeScene(FIGHT_PATH);
+            }
+        }
+
         private void OnDialogueBoxPrintFinished()
         {
-            GetTree().ChangeScene(FIGHT_PATH);
+            _inputLabel.Visible = true;
         }
     }
 }

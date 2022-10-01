@@ -14,4 +14,19 @@ You've got him on the ropes Box baby! Time to finish this!
 [node name="DialogueBox" parent="." instance=ExtResource( 2 )]
 unique_name_in_owner = true
 
+[node name="InputLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -94.0
+margin_top = -114.0
+margin_right = 94.0
+margin_bottom = -100.0
+text = "Press any button to continue."
+align = 1
+valign = 1
+
 [connection signal="PrintFinished" from="DialogueBox" to="." method="OnDialogueBoxPrintFinished"]
