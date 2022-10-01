@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://user_interface/dialogue/Dialogue.cs" type="Script" id=1]
+[ext_resource path="res://user_interface/dialogue_box/DialogueBox.cs" type="Script" id=1]
 
-[node name="Dialogue" type="Label"]
+[node name="DialogueBox" type="Label"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

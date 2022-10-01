@@ -10,23 +10,23 @@ namespace LudumDare51
         private const string FIGHT_PATH = "res://fight/fight.tscn";
 
         [Export(PropertyHint.MultilineText)]
-        private string _dialogueText;
+        private string _dialogue;
 
         private string[] _lines;
 
-        private Dialogue _dialogue;
+        private DialogueBox _dialogueBox;
 
         public override void _Ready()
         {
-            _dialogue = GetNode<Dialogue>("%Dialogue");
+            _dialogueBox = GetNode<DialogueBox>("%DialogueBox");
 
-            _lines = _dialogueText.Split('\n');
+            _lines = _dialogue.Split('\n');
 
             int round = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH).Round;
-            _dialogue.Print(_lines[round >= _lines.Length ? _lines.Length - 1 : round]);
+            _dialogueBox.Print(_lines[round >= _lines.Length ? _lines.Length - 1 : round]);
         }
 
-        private void OnDialoguePrintFinished()
+        private void OnDialogueBoxPrintFinished()
         {
             GetTree().ChangeScene(FIGHT_PATH);
         }

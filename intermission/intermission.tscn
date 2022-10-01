@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://intermission/Intermission.cs" type="Script" id=1]
-[ext_resource path="res://user_interface/dialogue/dialogue.tscn" type="PackedScene" id=2]
+[ext_resource path="res://user_interface/dialogue_box/dialogue_box.tscn" type="PackedScene" id=2]
 
 [node name="Intermission" type="Node"]
 script = ExtResource( 1 )
-_dialogueText = "Alright Box baby! You know the rules here! 10 seconds on the clock to knock out Crate! Left and right to dodge, up to punch! Let's do this baby!
+_dialogue = "Alright Box baby! You know the rules here! 10 seconds on the clock to knock out Crate! Left and right to dodge, up to punch! Let's do this baby!
 Great start Box baby! You got this! Put all of that training to good use!
 Nice going Box baby! He's start to slow down. Now's your chance!
 You've got him on the ropes Box baby! Time to finish this!
 ..."
 
-[node name="Dialogue" parent="." instance=ExtResource( 2 )]
+[node name="DialogueBox" parent="." instance=ExtResource( 2 )]
 unique_name_in_owner = true
 
-[connection signal="PrintFinished" from="Dialogue" to="." method="OnDialoguePrintFinished"]
+[connection signal="PrintFinished" from="DialogueBox" to="." method="OnDialogueBoxPrintFinished"]

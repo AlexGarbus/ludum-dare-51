@@ -3,14 +3,14 @@ using System;
 
 namespace LudumDare51.UserInterface
 {
-    public class Dialogue : Label
+    public class DialogueBox : Label
     {
         [Signal]
         public delegate void PrintFinished();
 
         private int _characters;
 
-        private string _dialogueText;
+        private string _dialogue;
 
         private Timer _characterTimer;
 
@@ -19,19 +19,19 @@ namespace LudumDare51.UserInterface
             _characterTimer = GetNode<Timer>("%CharacterTimer");
         }
 
-        public void Print(string dialogueText)
+        public void Print(string dialogue)
         {
             Text = "";
-            _dialogueText = dialogueText;
+            _dialogue = dialogue;
 
             _characterTimer.Start();
         }
 
         private void OnCharacterTimerTimeout()
         {
-            Text += _dialogueText[_characters++];
+            Text += _dialogue[_characters++];
 
-            if (_characters == _dialogueText.Length)
+            if (_characters == _dialogue.Length)
             {
                 _characterTimer.Stop();
                 EmitSignal(nameof(PrintFinished));
