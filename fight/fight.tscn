@@ -1,14 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/enemy/enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fight/Fight.cs" type="Script" id=3]
+[ext_resource path="res://user_interface/fight_display/fight_display.tscn" type="PackedScene" id=4]
 
 [node name="Fight" type="Node"]
+script = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+unique_name_in_owner = true
 position = Vector2( 960, 750 )
 scale = Vector2( 10, 10 )
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
+unique_name_in_owner = true
 position = Vector2( 960, 350 )
 scale = Vector2( 10, 10 )
+
+[node name="FightDisplay" parent="." instance=ExtResource( 4 )]
+unique_name_in_owner = true

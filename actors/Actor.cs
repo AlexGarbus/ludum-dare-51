@@ -5,12 +5,16 @@ namespace LudumDare51.Actors
 {
     public class Actor : Area2D
     {
+        [Signal]
+        delegate void HealthChanged(int value);
+
         protected enum State
         {
             IDLE,
             DODGE,
             PUNCH,
             KNOCKBACK,
+            DEFEAT,
         }
 
         [Export(PropertyHint.Range, "1,100,or_greater")]
@@ -34,6 +38,7 @@ namespace LudumDare51.Actors
             set
             {
                 _health = Mathf.Clamp(value, 0, _maxHealth);
+                EmitSignal(nameof(HealthChanged), value);
             }
         }
 
@@ -93,6 +98,11 @@ namespace LudumDare51.Actors
             Move(_knockbackDistance * direction, _knockbackTime);
         }
 
+        protected void Defeat()
+        {
+            _state = State.DEFEAT;
+        }
+
         protected void FlipFistPivot(bool isFlipped)
         {
             Vector2 scale = new Vector2(1, 1);
@@ -106,8 +116,14 @@ namespace LudumDare51.Actors
         private void OnAreaEntered(Area2D area)
         {
             Health--;
-            Knockback((GlobalPosition - area.GlobalPosition).Normalized());
-            GD.Print(area.Name);
+            if (Health == 0)
+            {
+                Defeat();
+            }
+            else
+            {
+                Knockback((GlobalPosition - area.GlobalPosition).Normalized());
+            }
         }
     }
 }
