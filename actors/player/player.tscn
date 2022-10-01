@@ -15,7 +15,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -18, 0 ) ]
+"values": [ Vector2( -180, 0 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("FistPivot/FistLeft:rotation_degrees")
@@ -39,7 +39,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 18, 0 ) ]
+"values": [ Vector2( 180, 0 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("FistPivot/FistRight:rotation_degrees")
@@ -66,7 +66,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -18, -15 ) ]
+"values": [ Vector2( -180, -150 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("FistPivot/FistLeft:rotation_degrees")
@@ -90,7 +90,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -17 ) ]
+"values": [ Vector2( 0, -170 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("FistPivot/FistRight:rotation_degrees")
@@ -117,7 +117,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -16, -15 ) ]
+"values": [ Vector2( -160, -150 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("FistPivot/FistLeft:rotation_degrees")
@@ -141,7 +141,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 16, -15 ) ]
+"values": [ Vector2( 160, -150 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("FistPivot/FistRight:rotation_degrees")
@@ -168,7 +168,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -20, 5 ) ]
+"values": [ Vector2( -200, 50 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("FistPivot/FistLeft:rotation_degrees")
@@ -192,7 +192,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 20, 5 ) ]
+"values": [ Vector2( 200, 50 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("FistPivot/FistRight:rotation_degrees")
@@ -219,7 +219,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( -16, -5 ) ]
+"values": [ Vector2( -160, -50 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("FistPivot/FistLeft:rotation_degrees")
@@ -243,7 +243,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Vector2( 0, -30 ) ]
+"values": [ Vector2( 0, -300 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("FistPivot/FistRight:rotation_degrees")
@@ -265,7 +265,7 @@ _dodgeDistance = 400.0
 _dodgeTime = 0.5
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, 5 )
+position = Vector2( 0, 48 )
 
 [node name="FistRight" parent="FistPivot" index="1"]
 collision_layer = 1

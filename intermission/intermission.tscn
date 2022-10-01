@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://intermission/Intermission.cs" type="Script" id=1]
 [ext_resource path="res://user_interface/dialogue_box/dialogue_box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://intermission/intermission.png" type="Texture" id=3]
 
 [node name="Intermission" type="Node"]
 script = ExtResource( 1 )
@@ -13,6 +14,8 @@ You've got him on the ropes Box baby! Time to finish this!
 
 [node name="DialogueBox" parent="." instance=ExtResource( 2 )]
 unique_name_in_owner = true
+margin_top = 272.0
+margin_bottom = 328.0
 
 [node name="InputLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -28,5 +31,9 @@ margin_bottom = -100.0
 text = "Press any button to continue."
 align = 1
 valign = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 960, 440 )
+texture = ExtResource( 3 )
 
 [connection signal="PrintFinished" from="DialogueBox" to="." method="OnDialogueBoxPrintFinished"]
