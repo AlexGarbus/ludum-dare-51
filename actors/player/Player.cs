@@ -36,13 +36,7 @@ namespace LudumDare51.Actors
         {
             _state = State.DODGE;
             _animationPlayer.Play("dodge", _dodgeTime);
-
-            Vector2 pivotScale = new Vector2(1, 1);
-            if (direction.x < 0)
-            {
-                pivotScale.x = -1;
-            }
-            _fistPivot.Scale = pivotScale;
+            FlipFistPivot(direction.x < 0);
 
             Move(_dodgeDistance * direction, _dodgeTime);
         }

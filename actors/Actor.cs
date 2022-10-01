@@ -39,6 +39,8 @@ namespace LudumDare51.Actors
 
         protected Vector2 _idlePosition;
 
+        private bool _isPunchFlipped = false;
+
         private int _health;
 
         public override void _Ready()
@@ -69,7 +71,20 @@ namespace LudumDare51.Actors
             _state = State.PUNCH;
             _animationPlayer.Play("punch", _punchTime);
 
+            FlipFistPivot(_isPunchFlipped);
+            _isPunchFlipped = !_isPunchFlipped;
+
             Move(_punchDistance * direction, _punchTime);
+        }
+
+        protected void FlipFistPivot(bool isFlipped)
+        {
+            Vector2 scale = new Vector2(1, 1);
+            if (isFlipped)
+            {
+                scale.x = -1;
+            }
+            _fistPivot.Scale = scale;
         }
     }
 }
