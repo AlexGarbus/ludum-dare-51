@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Ludum Dare 51"
-run/main_scene="res://fight/fight.tscn"
+run/main_scene="res://intermission/intermission.tscn"
 config/icon="res://icon.png"
 
 [autoload]
