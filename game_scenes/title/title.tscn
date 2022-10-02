@@ -26,6 +26,17 @@ text = "TenSecBox"
 align = 1
 valign = 1
 
+[node name="InputLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -535.0
+margin_top = -204.0
+margin_right = 535.0
+margin_bottom = -100.0
+text = "Enter/Start to toggle fullscreen. Esc/Select to quit."
+
 [node name="SceneChangeLabel" parent="." instance=ExtResource( 4 )]
 _scene_path = "res://game_scenes/intermission/intermission.tscn"
 
