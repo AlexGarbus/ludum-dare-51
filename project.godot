@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="TenSecBox"
 config/description="Submission for Ludum Dare 51."
-run/main_scene="res://game_scenes/intermission/intermission.tscn"
+run/main_scene="res://game_scenes/title/title.tscn"
 config/icon="res://icon.png"
 
 [autoload]
