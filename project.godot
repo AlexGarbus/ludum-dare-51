@@ -31,6 +31,7 @@ AutoLoadPaths="*res://autoload/AutoLoadPaths.cs"
 FightData="*res://autoload/FightData.cs"
 ScreenManager="*res://autoload/ScreenManager.cs"
 GameManager="*res://autoload/GameManager.cs"
+SaveManager="*res://autoload/SaveManager.cs"
 
 [display]
 
