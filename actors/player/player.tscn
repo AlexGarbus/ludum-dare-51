@@ -366,6 +366,9 @@ script = ExtResource( 2 )
 _dodgeDistance = 400.0
 _dodgeTime = 0.25
 
+[node name="BodyShape" parent="." index="1"]
+position = Vector2( 0, 50 )
+
 [node name="FistLeft" parent="FistPivot" index="0"]
 z_index = -1
 

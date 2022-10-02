@@ -495,6 +495,9 @@ _windupTime = 0.35
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 4 )
 
+[node name="BodyShape" parent="." index="1"]
+position = Vector2( 0, -50 )
+
 [node name="FistLeft" parent="FistPivot" index="0"]
 z_index = 1
 texture = ExtResource( 3 )
