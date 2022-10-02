@@ -158,12 +158,17 @@ namespace LudumDare51.Actors
 
         private void OnAreaEntered(Area2D area)
         {
+            if (_state == State.KNOCKBACK)
+            {
+                return;
+            }
+
             Health -= _damageTaken;
             if (Health == 0)
             {
                 Defeat();
             }
-            else if (_state != State.KNOCKBACK)
+            else
             {
                 Knockback((GlobalPosition - area.GlobalPosition).Normalized());
             }
