@@ -48,10 +48,7 @@ namespace LudumDare51.Actors
             get { return _moveTween; }
             set
             {
-                if (_moveTween != null)
-                {
-                    _moveTween.Kill();
-                }
+                _moveTween?.Kill();
                 _moveTween = value;
             }
         }
