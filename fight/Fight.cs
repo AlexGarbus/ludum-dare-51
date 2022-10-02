@@ -12,8 +12,8 @@ namespace LudumDare51
 
         private FightData _fightData;
 
-        Player player;
-        Enemy enemy;
+        private Player _player;
+        private Enemy _enemy;
 
         private Timer _fightTimer;
         private Timer _fightEndDelay;
@@ -21,14 +21,14 @@ namespace LudumDare51
         public override void _Ready()
         {
             _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
-            player = GetNode<Player>("%Player");
-            enemy = GetNode<Enemy>("%Enemy");
+            _player = GetNode<Player>("%Player");
+            _enemy = GetNode<Enemy>("%Enemy");
             _fightEndDelay = GetNode<Timer>("%FightEndDelay");
             _fightTimer = GetNode<Timer>("%FightTimer");
 
             _fightData.Round++;
 
-            GetNode<FightDisplay>("%FightDisplay").Initialize(player, enemy, _fightTimer);
+            GetNode<FightDisplay>("%FightDisplay").Initialize(_player, _enemy, _fightTimer);
 
             GetTree().Paused = true;
         }
@@ -51,9 +51,14 @@ namespace LudumDare51
 
         private void OnFightEndDelayTimeout()
         {
-            if (player.Health == 0 || enemy.Health == 0)
+            if (_player.Health == 0 || _enemy.Health == 0)
             {
                 _fightData.Reset();
+            }
+            else
+            {
+                _fightData.PlayerHealth = _player.Health;
+                _fightData.EnemyHealth = _enemy.Health;
             }
 
             GetTree().Paused = false;

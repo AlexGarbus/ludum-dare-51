@@ -22,13 +22,5 @@ namespace LudumDare51.Actors
                 Punch(Vector2.Down);
             }
         }
-
-        public override void _ExitTree()
-        {
-            if (Health > 0)
-            {
-                _fightData.EnemyHealth = Health;
-            }
-        }
     }
 }

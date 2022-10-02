@@ -39,14 +39,6 @@ namespace LudumDare51.Actors
             }
         }
 
-        public override void _ExitTree()
-        {
-            if (Health > 0)
-            {
-                _fightData.PlayerHealth = Health;
-            }
-        }
-
         private void Dodge(Vector2 direction)
         {
             _state = State.DODGE;
