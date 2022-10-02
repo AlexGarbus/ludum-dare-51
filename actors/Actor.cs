@@ -60,6 +60,9 @@ namespace LudumDare51.Actors
 
         protected AnimationPlayer _animationPlayer;
 
+        private AudioStreamPlayer _knockbackSound;
+        private AudioStreamPlayer _punchSound;
+
         protected CollisionShape2D _bodyShape;
 
         protected FightData _fightData;
@@ -80,6 +83,8 @@ namespace LudumDare51.Actors
         public override void _Ready()
         {
             _animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
+            _knockbackSound = GetNode<AudioStreamPlayer>("%KnockbackSound");
+            _punchSound = GetNode<AudioStreamPlayer>("%PunchSound");
             _bodyShape = GetNode<CollisionShape2D>("%BodyShape");
             _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
             _fistPivot = GetNode<Position2D>("%FistPivot");
@@ -114,6 +119,7 @@ namespace LudumDare51.Actors
         {
             _state = State.PUNCH;
             _animationPlayer.Play("punch", _punchTime);
+            _punchSound.Play();
 
             FlipFistPivot(_isPunchFlipped);
             _isPunchFlipped = !_isPunchFlipped;
@@ -127,6 +133,7 @@ namespace LudumDare51.Actors
         {
             _state = State.KNOCKBACK;
             _animationPlayer.Play("knockback", _knockbackTime);
+            _knockbackSound.Play();
 
             MoveTween = CreatePingPongMoveTween(_knockbackDistance * direction, _knockbackTime);
         }

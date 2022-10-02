@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://actors/actor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://actors/player/Player.cs" type="Script" id=2]
+[ext_resource path="res://actors/dodge.wav" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -381,3 +382,7 @@ anims/idle = SubResource( 2 )
 anims/knockback = SubResource( 6 )
 anims/punch = SubResource( 5 )
 blend_times = [ "dodge", "dodge", 1.0, "dodge", "idle", 1.0, "idle", "dodge", 1.0, "idle", "idle", 1.0 ]
+
+[node name="DodgeSound" type="AudioStreamPlayer" parent="Sounds" index="2"]
+unique_name_in_owner = true
+stream = ExtResource( 3 )

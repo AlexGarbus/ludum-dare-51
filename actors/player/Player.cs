@@ -11,9 +11,13 @@ namespace LudumDare51.Actors
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _dodgeTime;
 
+        private AudioStreamPlayer _dodgeSound;
+
         public override void _Ready()
         {
             base._Ready();
+
+            _dodgeSound = GetNode<AudioStreamPlayer>("%DodgeSound");
 
             Health += _fightData.PlayerHealth;
         }
@@ -48,6 +52,8 @@ namespace LudumDare51.Actors
         {
             _state = State.DODGE;
             _animationPlayer.Play("dodge", _dodgeTime);
+            _dodgeSound.Play();
+
             FlipFistPivot(direction.x < 0);
 
             MoveTween = CreatePingPongMoveTween(_dodgeDistance * direction, _dodgeTime);

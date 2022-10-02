@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://actors/Actor.cs" type="Script" id=1]
 [ext_resource path="res://actors/player/box.png" type="Texture" id=2]
 [ext_resource path="res://actors/player/box_fist.png" type="Texture" id=3]
+[ext_resource path="res://actors/punch.wav" type="AudioStream" id=5]
+[ext_resource path="res://actors/knockback.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 100, 100 )
@@ -51,3 +53,13 @@ disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="KnockbackSound" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource( 6 )
+
+[node name="PunchSound" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource( 5 )
