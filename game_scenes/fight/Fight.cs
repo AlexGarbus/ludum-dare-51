@@ -9,6 +9,7 @@ namespace LudumDare51.GameScenes
     public class Fight : Node
     {
         private const string INTERMISSION_PATH = "res://game_scenes/intermission/intermission.tscn";
+        private const string RESULTS_PATH = "res://game_scenes/results/results.tscn";
 
         private FightData _fightData;
 
@@ -51,18 +52,16 @@ namespace LudumDare51.GameScenes
 
         private void OnFightEndDelayTimeout()
         {
+            GetTree().Paused = false;
+
             if (_player.Health == 0 || _enemy.Health == 0)
             {
-                _fightData.Reset();
+                GetTree().ChangeScene(RESULTS_PATH);
             }
             else
             {
-                _fightData.PlayerHealth = _player.Health;
-                _fightData.EnemyHealth = _enemy.Health;
+                GetTree().ChangeScene(INTERMISSION_PATH);
             }
-
-            GetTree().Paused = false;
-            GetTree().ChangeScene(INTERMISSION_PATH);
         }
 
         private void OnActorHealthChanged(int value)

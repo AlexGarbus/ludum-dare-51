@@ -39,6 +39,11 @@ namespace LudumDare51.Actors
             }
         }
 
+        public override void _ExitTree()
+        {
+            _fightData.PlayerHealth = Health;
+        }
+
         private void Dodge(Vector2 direction)
         {
             _state = State.DODGE;

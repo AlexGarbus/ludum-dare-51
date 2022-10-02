@@ -35,6 +35,11 @@ namespace LudumDare51.Actors
             }
         }
 
+        public override void _ExitTree()
+        {
+            _fightData.EnemyHealth = Health;
+        }
+
         protected override void Punch(Vector2 direction)
         {
             base.Punch(direction);
