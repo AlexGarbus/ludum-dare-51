@@ -444,7 +444,7 @@ _windupTime = 0.35
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -48 )
+position = Vector2( 0, -51 )
 
 [node name="FistLeft" parent="FistPivot" index="0"]
 z_index = 1

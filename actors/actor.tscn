@@ -5,7 +5,7 @@
 [ext_resource path="res://actors/player/box_fist.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 106, 106 )
+extents = Vector2( 100, 100 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 44, 45 )
