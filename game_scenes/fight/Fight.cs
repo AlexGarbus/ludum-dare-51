@@ -80,8 +80,6 @@ namespace LudumDare51.GameScenes
 
         private void OnFightEndDelayTimeout()
         {
-            GetTree().Paused = false;
-
             if (_player.Health == 0 || _enemy.Health == 0)
             {
                 GetTree().ChangeScene(RESULTS_PATH);
