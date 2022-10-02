@@ -18,7 +18,7 @@ _healAmount = 3
 _punchDistance = 200.0
 _punchTime = 0.2
 _knockbackDistance = 100.0
-_knockbackTime = 0.25
+_knockbackTime = 0.2
 
 [node name="Body" type="Sprite" parent="."]
 texture = ExtResource( 2 )
