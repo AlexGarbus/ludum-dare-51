@@ -486,6 +486,7 @@ tracks/4/keys = {
 collision_layer = 2
 script = ExtResource( 2 )
 _punchChance = 100
+_windupDistance = 100.0
 _windupTime = 0.35
 
 [node name="Body" parent="." index="0"]
