@@ -8,7 +8,7 @@
 
 [node name="Intermission" type="Node"]
 script = ExtResource( 5 )
-_dialogue = "Alright Box baby! You know the rules here! 10 seconds on the clock to knock out your opponent: Crate! Left and right to dodge, up to punch! Let's do this baby!
+_dialogue = "Alright Box baby! You know the rules here at TenSecBox! 10 seconds on the clock to knock out your opponent: Crate! Left and right to dodge, up to punch! Let's do this baby!
 Great start, Box baby! You got this! Put all of that training to good use!
 Keep it up, Box baby! Just remember what your ol' coach Shoebox taught ya! Left! Right! Up! Repeat!
 Nice going, Box baby! He's starting to slow down. Now's your chance!
