@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://user_interface/theme/theme.tres" type="Theme" id=1]
 [ext_resource path="res://actors/player/box_fist.png" type="Texture" id=2]
@@ -6,11 +6,13 @@
 [ext_resource path="res://user_interface/labels/scene_change_label/scene_change_label.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game_scenes/title/title.wav" type="AudioStream" id=5]
 [ext_resource path="res://user_interface/labels/best_score_label/best_score_label.tscn" type="PackedScene" id=6]
+[ext_resource path="res://game_scenes/title/Title.cs" type="Script" id=7]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+script = ExtResource( 7 )
 
 [node name="BestScoreLabel" parent="." instance=ExtResource( 6 )]
 
@@ -54,5 +56,12 @@ rotation = -0.523599
 texture = ExtResource( 3 )
 
 [node name="TitleSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
 stream = ExtResource( 5 )
-autoplay = true
+
+[node name="TitleSoundDelay" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TitleSoundDelay" to="." method="OnTitleSoundDelayTimeout"]
