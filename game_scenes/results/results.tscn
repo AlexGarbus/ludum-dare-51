@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://user_interface/theme/theme.tres" type="Theme" id=1]
 [ext_resource path="res://game_scenes/results/Results.cs" type="Script" id=2]
+[ext_resource path="res://game_scenes/results/win.wav" type="AudioStream" id=3]
 [ext_resource path="res://user_interface/scene_change_label/scene_change_label.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game_scenes/results/lose.wav" type="AudioStream" id=5]
 
 [node name="Results" type="Control"]
 anchor_right = 1.0
@@ -27,3 +29,14 @@ valign = 1
 unique_name_in_owner = true
 visible = false
 _scene_path = "res://game_scenes/title/title.tscn"
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 3 )
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource( 5 )
+
+[connection signal="finished" from="WinSound" to="." method="OnSoundFinished"]
+[connection signal="finished" from="LoseSound" to="." method="OnSoundFinished"]

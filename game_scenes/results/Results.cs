@@ -13,6 +13,9 @@ namespace LudumDare51.GameScenes
         [Export]
         private string _loseText = "You are loser!";
 
+        private AudioStreamPlayer _winSound;
+        private AudioStreamPlayer _loseSound;
+
         private FightData _fightData;
 
         private Label _resultsLabel;
@@ -20,19 +23,33 @@ namespace LudumDare51.GameScenes
 
         public override void _Ready()
         {
+            _winSound = GetNode<AudioStreamPlayer>("%WinSound");
+            _loseSound = GetNode<AudioStreamPlayer>("%LoseSound");
             _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
             _resultsLabel = GetNode<Label>("%ResultsLabel");
             _sceneChangeLabel = GetNode<SceneChangeLabel>("%SceneChangeLabel");
 
-            SetResultsLabelText();
+            SetResults();
             _fightData.Reset();
-
-            _sceneChangeLabel.Visible = true; // TODO: Move this to after sound plays
         }
 
-        private void SetResultsLabelText()
+        private void SetResults()
         {
-            _resultsLabel.Text = _fightData.PlayerHealth == 0 ? _loseText : _winText;
+            if (_fightData.PlayerHealth == 0)
+            {
+                _resultsLabel.Text = _loseText;
+                _loseSound.Play();
+            }
+            else
+            {
+                _resultsLabel.Text = _winText;
+                _winSound.Play();
+            }
+        }
+
+        private void OnSoundFinished()
+        {
+            _sceneChangeLabel.Visible = true;
         }
     }
 }
