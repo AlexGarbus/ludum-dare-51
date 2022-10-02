@@ -27,6 +27,7 @@ namespace LudumDare51.GameScenes
         private State _state = State.ROUND_START;
 
         private AudioStreamPlayer _bellSound;
+        private AudioStreamPlayer _fightSound;
 
         private FightData _fightData;
 
@@ -39,6 +40,7 @@ namespace LudumDare51.GameScenes
         public override void _Ready()
         {
             _bellSound = GetNode<AudioStreamPlayer>("%BellSound");
+            _fightSound = GetNode<AudioStreamPlayer>("%FightSound");
             _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
             _player = GetNode<Player>("%Player");
             _enemy = GetNode<Enemy>("%Enemy");
@@ -102,14 +104,21 @@ namespace LudumDare51.GameScenes
 
         private void OnBellSoundFinished()
         {
-            if (_state == State.FIGHT_END)
+            switch (_state)
             {
-                _bellLoops++;
+                case State.ROUND_START:
+                case State.ROUND_IN_PROGRESS:
+                    _fightSound.Play();
+                    break;
+                case State.FIGHT_END:
+                    _bellLoops++;
 
-                if (_bellLoops < _maxBellLoops)
-                {
-                    _bellSound.Play();
-                }
+                    if (_bellLoops < _maxBellLoops)
+                    {
+                        _bellSound.Play();
+                    }
+
+                    break;
             }
         }
     }
