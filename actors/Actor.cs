@@ -143,6 +143,8 @@ namespace LudumDare51.Actors
             _state = State.DEFEAT;
             _animationPlayer.Play("defeat");
 
+            MoveTween.Kill();
+
             _bodyShape.SetDeferred("disabled", true);
         }
 

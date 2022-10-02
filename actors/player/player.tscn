@@ -386,7 +386,7 @@ anims/dodge = SubResource( 4 )
 anims/idle = SubResource( 2 )
 anims/knockback = SubResource( 6 )
 anims/punch = SubResource( 5 )
-blend_times = [ "dodge", "dodge", 1.0, "dodge", "idle", 1.0, "idle", "dodge", 1.0, "idle", "idle", 1.0 ]
+blend_times = [ "dodge", "defeat", 0.1, "dodge", "dodge", 1.0, "dodge", "idle", 1.0, "idle", "defeat", 0.1, "idle", "dodge", 1.0, "idle", "idle", 1.0, "punch", "defeat", 0.1 ]
 
 [node name="DodgeSound" type="AudioStreamPlayer" parent="Sounds" index="2"]
 unique_name_in_owner = true
