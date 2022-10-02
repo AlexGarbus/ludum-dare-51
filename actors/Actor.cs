@@ -163,7 +163,7 @@ namespace LudumDare51.Actors
             {
                 Defeat();
             }
-            else
+            else if (_state != State.KNOCKBACK)
             {
                 Knockback((GlobalPosition - area.GlobalPosition).Normalized());
             }
