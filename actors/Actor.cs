@@ -73,7 +73,7 @@ namespace LudumDare51.Actors
         
         protected void Move(Vector2 displacement, float time)
         {
-            SceneTreeTween tween = GetTree().CreateTween();
+            SceneTreeTween tween = CreateTween();
             tween.TweenProperty(this, "position", _idlePosition + displacement, time);
             tween.TweenCallback(_animationPlayer, "play", new Godot.Collections.Array("idle", time));
             tween.TweenProperty(this, "position", _idlePosition, time);

@@ -8,6 +8,9 @@ namespace LudumDare51.Actors
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private int _punchChance = 100;
 
+        [Export(PropertyHint.Range, "0,100,or_greater")]
+        private float _windupTime;
+
         public override void _Ready()
         {
             base._Ready();
@@ -19,8 +22,17 @@ namespace LudumDare51.Actors
         {
             if (_state == State.IDLE && GD.Randi() % _punchChance == 0)
             {
-                Punch(Vector2.Down);
+                WindupPunch();
             }
+        }
+
+        private void WindupPunch()
+        {
+            _state = State.PUNCH;
+            _animationPlayer.Play("windup");
+
+            SceneTreeTween tween = CreateTween();
+            tween.TweenCallback(this, nameof(Punch), new Godot.Collections.Array(Vector2.Down)).SetDelay(_windupTime);
         }
     }
 }
