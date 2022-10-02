@@ -58,11 +58,14 @@ namespace LudumDare51.Actors
         private int _health = 0;
         private int _maxHealth;
 
+        private CollisionShape2D _fistShape;
+
         public override void _Ready()
         {
             _animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
             _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
             _fistPivot = GetNode<Position2D>("%FistPivot");
+            _fistShape = GetNode<CollisionShape2D>("%FistShape");
 
             _idlePosition = Position;
             _maxHealth = FightData.MAX_HEALTH;
@@ -83,6 +86,8 @@ namespace LudumDare51.Actors
         protected void Idle()
         {
             _state = State.IDLE;
+
+            _fistShape.SetDeferred("disabled", true);
         }
 
         protected void Punch(Vector2 direction)
@@ -92,6 +97,8 @@ namespace LudumDare51.Actors
 
             FlipFistPivot(_isPunchFlipped);
             _isPunchFlipped = !_isPunchFlipped;
+
+            _fistShape.SetDeferred("disabled", false);
 
             Move(_punchDistance * direction, _punchTime);
         }
