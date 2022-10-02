@@ -487,6 +487,7 @@ collision_layer = 2
 script = ExtResource( 2 )
 _idleToPunchChance = 100
 _knockbackToPunchChance = 5
+_punchToPunchChance = 3
 _windupDistance = 100.0
 _windupTime = 0.35
 

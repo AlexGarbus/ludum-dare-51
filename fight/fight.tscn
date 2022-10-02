@@ -27,6 +27,7 @@ z_index = 2
 unique_name_in_owner = true
 position = Vector2( 959, 350 )
 z_index = -1
+_punchToPunchChance = 3
 
 [node name="FightDisplay" parent="." instance=ExtResource( 4 )]
 unique_name_in_owner = true
