@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://intermission/Intermission.cs" type="Script" id=1]
 [ext_resource path="res://user_interface/dialogue_box/dialogue_box.tscn" type="PackedScene" id=2]
 [ext_resource path="res://intermission/intermission.png" type="Texture" id=3]
 [ext_resource path="res://user_interface/theme/theme.tres" type="Theme" id=4]
+[ext_resource path="res://user_interface/scene_change_label/scene_change_label.tscn" type="PackedScene" id=5]
 
 [node name="Intermission" type="Node"]
 script = ExtResource( 1 )
@@ -48,18 +49,8 @@ margin_right = 0.0
 margin_bottom = 451.0
 autowrap = true
 
-[node name="InputLabel" type="Label" parent="IntermissionUI"]
-unique_name_in_owner = true
+[node name="SceneChangeLabel" parent="IntermissionUI" instance=ExtResource( 5 )]
 visible = false
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-margin_left = -306.0
-margin_top = -104.0
-margin_right = 306.0
-text = "Press any button to continue."
-align = 1
-valign = 1
+_scene_path = "res://fight/fight.tscn"
 
 [connection signal="PrintFinished" from="IntermissionUI/DialogueBox" to="." method="OnDialogueBoxPrintFinished"]

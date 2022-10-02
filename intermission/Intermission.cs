@@ -12,31 +12,20 @@ namespace LudumDare51
         [Export(PropertyHint.MultilineText)]
         private string _dialogue;
 
-        private bool _fightLoaded = false;
-
         private string[] _lines;
 
         private DialogueBox _dialogueBox;
-        private Label _inputLabel;
+        private SceneChangeLabel _inputLabel;
 
         public override void _Ready()
         {
             _dialogueBox = GetNode<DialogueBox>("%DialogueBox");
-            _inputLabel = GetNode<Label>("%InputLabel");
+            _inputLabel = GetNode<SceneChangeLabel>("%SceneChangeLabel");
 
             _lines = _dialogue.Split('\n');
 
             int round = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH).Round;
             _dialogueBox.Print(_lines[round >= _lines.Length ? _lines.Length - 1 : round]);
-        }
-
-        public override void _UnhandledInput(InputEvent @event)
-        {
-            if (_inputLabel.Visible && !_fightLoaded && (@event is InputEventKey || @event is InputEventJoypadButton))
-            {
-                _fightLoaded = true;
-                GetTree().ChangeScene(FIGHT_PATH);
-            }
         }
 
         private void OnDialogueBoxPrintFinished()
