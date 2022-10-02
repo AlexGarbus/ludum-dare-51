@@ -11,6 +11,9 @@ namespace LudumDare51.Actors
         [Export(PropertyHint.Range, "1,100,or_greater")]
         private int _knockbackToPunchChance = 5;
 
+        [Export(PropertyHint.Range, "1,100,or_greater")]
+        private int _punchToPunchChance = 3;
+
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _windupDistance;
 
@@ -26,17 +29,24 @@ namespace LudumDare51.Actors
 
         public override void _Process(float delta)
         {
-            if (_state == State.IDLE && GD.Randi() % _idleToPunchChance == 0)
+            if (_state == State.IDLE)
             {
-                WindupPunch();
+                DeterminePunch(_idleToPunchChance);
             }
+        }
+
+        protected override void Punch(Vector2 direction)
+        {
+            base.Punch(direction);
+
+            MoveTween.TweenCallback(this, nameof(DeterminePunch), new Godot.Collections.Array(_punchToPunchChance));
         }
 
         protected override void Knockback(Vector2 direction)
         {
             base.Knockback(direction);
 
-            MoveTween.TweenCallback(this, nameof(DetermineKnockbackToPunch));
+            MoveTween.TweenCallback(this, nameof(DeterminePunch), new Godot.Collections.Array(_knockbackToPunchChance));
         }
 
         private void WindupPunch()
@@ -51,9 +61,9 @@ namespace LudumDare51.Actors
             MoveTween.TweenCallback(this, nameof(Punch), new Godot.Collections.Array(Vector2.Down));
         }
 
-        private void DetermineKnockbackToPunch()
+        private void DeterminePunch(int chance)
         {
-            if (GD.Randi() % _knockbackToPunchChance == 0)
+            if (GD.Randi() % chance == 0)
             {
                 WindupPunch();
             }
