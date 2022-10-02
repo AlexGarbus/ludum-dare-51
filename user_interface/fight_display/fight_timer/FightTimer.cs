@@ -16,7 +16,7 @@ namespace LudumDare51.UserInterface
 
         public override void _Process(float delta)
         {
-            if (_timer != null)
+            if (_timer != null && !_timer.IsStopped())
             {
                 SetTimeLabelText();
             }
