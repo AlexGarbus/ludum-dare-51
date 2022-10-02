@@ -12,10 +12,13 @@ namespace LudumDare51.UserInterface
 
         private string _dialogue;
 
+        private AudioStreamPlayer _printSound;
+
         private Timer _characterTimer;
 
         public override void _Ready()
         {
+            _printSound = GetNode<AudioStreamPlayer>("%PrintSound");
             _characterTimer = GetNode<Timer>("%CharacterTimer");
         }
 
@@ -30,6 +33,8 @@ namespace LudumDare51.UserInterface
         private void OnCharacterTimerTimeout()
         {
             Text += _dialogue[_characters++];
+
+            _printSound.Play();
 
             if (_characters == _dialogue.Length)
             {
