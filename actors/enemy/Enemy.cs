@@ -20,9 +20,13 @@ namespace LudumDare51.Actors
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _windupTime;
 
+        private Timer _punchTimer;
+
         public override void _Ready()
         {
             base._Ready();
+
+            _punchTimer = GetNode<Timer>("%PunchTimer");
 
             Health += _fightData.EnemyHealth;
         }
@@ -31,7 +35,14 @@ namespace LudumDare51.Actors
         {
             if (_state == State.IDLE)
             {
-                DeterminePunch(_idleToPunchChance);
+                if (_punchTimer.TimeLeft == 0)
+                {
+                    WindupPunch();
+                }
+                else
+                {
+                    DeterminePunch(_idleToPunchChance);
+                }
             }
         }
 
@@ -45,6 +56,7 @@ namespace LudumDare51.Actors
             base.Punch(direction);
 
             MoveTween.TweenCallback(this, nameof(DeterminePunch), new Godot.Collections.Array(_punchToPunchChance));
+            MoveTween.TweenCallback(_punchTimer, "start");
         }
 
         protected override void Knockback(Vector2 direction)
@@ -58,6 +70,8 @@ namespace LudumDare51.Actors
         {
             _state = State.PUNCH;
             _animationPlayer.Play("windup");
+
+            _punchTimer.Stop();
 
             _bodyShape.SetDeferred("disabled", true);
 
