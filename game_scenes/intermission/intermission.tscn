@@ -50,6 +50,7 @@ margin_bottom = 451.0
 autowrap = true
 
 [node name="SceneChangeLabel" parent="IntermissionUI" instance=ExtResource( 4 )]
+unique_name_in_owner = true
 visible = false
 _scene_path = "res://game_scenes/fight/fight.tscn"
 

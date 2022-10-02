@@ -13,12 +13,12 @@ namespace LudumDare51.GameScenes
         private string[] _lines;
 
         private DialogueBox _dialogueBox;
-        private SceneChangeLabel _inputLabel;
+        private SceneChangeLabel _sceneChangeLabel;
 
         public override void _Ready()
         {
             _dialogueBox = GetNode<DialogueBox>("%DialogueBox");
-            _inputLabel = GetNode<SceneChangeLabel>("%SceneChangeLabel");
+            _sceneChangeLabel = GetNode<SceneChangeLabel>("%SceneChangeLabel");
 
             _lines = _dialogue.Split('\n');
 
@@ -28,7 +28,7 @@ namespace LudumDare51.GameScenes
 
         private void OnDialogueBoxPrintFinished()
         {
-            _inputLabel.Visible = true;
+            _sceneChangeLabel.Visible = true;
         }
     }
 }
