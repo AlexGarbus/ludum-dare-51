@@ -3,7 +3,7 @@
 [ext_resource path="res://user_interface/theme/theme.tres" type="Theme" id=1]
 [ext_resource path="res://game_scenes/intermission/intermission.png" type="Texture" id=2]
 [ext_resource path="res://user_interface/dialogue_box/dialogue_box.tscn" type="PackedScene" id=3]
-[ext_resource path="res://user_interface/scene_change_label/scene_change_label.tscn" type="PackedScene" id=4]
+[ext_resource path="res://user_interface/labels/scene_change_label/scene_change_label.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game_scenes/intermission/Intermission.cs" type="Script" id=5]
 
 [node name="Intermission" type="Node"]

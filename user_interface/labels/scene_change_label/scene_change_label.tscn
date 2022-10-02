@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://user_interface/theme/theme.tres" type="Theme" id=1]
-[ext_resource path="res://user_interface/scene_change_label/SceneChangeLabel.cs" type="Script" id=2]
+[ext_resource path="res://user_interface/labels/scene_change_label/SceneChangeLabel.cs" type="Script" id=2]
 
 [node name="SceneChangeLabel" type="Label"]
 anchor_left = 0.5

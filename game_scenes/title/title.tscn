@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://user_interface/theme/theme.tres" type="Theme" id=1]
 [ext_resource path="res://actors/player/box_fist.png" type="Texture" id=2]
 [ext_resource path="res://actors/enemy/crate_fist.png" type="Texture" id=3]
-[ext_resource path="res://user_interface/scene_change_label/scene_change_label.tscn" type="PackedScene" id=4]
+[ext_resource path="res://user_interface/labels/scene_change_label/scene_change_label.tscn" type="PackedScene" id=4]
 [ext_resource path="res://game_scenes/title/title.wav" type="AudioStream" id=5]
+[ext_resource path="res://user_interface/labels/best_score_label/best_score_label.tscn" type="PackedScene" id=6]
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
+
+[node name="BestScoreLabel" parent="." instance=ExtResource( 6 )]
 
 [node name="TitleLabel" type="Label" parent="."]
 anchor_left = 0.5
