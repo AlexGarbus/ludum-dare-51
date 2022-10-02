@@ -4,11 +4,11 @@ using LudumDare51.UserInterface;
 using Godot;
 using System;
 
-namespace LudumDare51
+namespace LudumDare51.GameScenes
 {
     public class Fight : Node
     {
-        private const string INTERMISSION_PATH = "res://intermission/intermission.tscn";
+        private const string INTERMISSION_PATH = "res://game_scenes/intermission/intermission.tscn";
 
         private FightData _fightData;
 

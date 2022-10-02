@@ -3,12 +3,10 @@ using LudumDare51.UserInterface;
 using Godot;
 using System;
 
-namespace LudumDare51
+namespace LudumDare51.GameScenes
 {
     public class Intermission : Node
     {
-        private const string FIGHT_PATH = "res://fight/fight.tscn";
-
         [Export(PropertyHint.MultilineText)]
         private string _dialogue;
 

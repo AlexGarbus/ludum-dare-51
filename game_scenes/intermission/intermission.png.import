@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-dae62b16227c6b21cfaf05fd579c5bc6.stex"
+path="res://.import/intermission.png-9047cf2d77236ec007bcca5837c1a6a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fight/background.png"
-dest_files=[ "res://.import/background.png-dae62b16227c6b21cfaf05fd579c5bc6.stex" ]
+source_file="res://game_scenes/intermission/intermission.png"
+dest_files=[ "res://.import/intermission.png-9047cf2d77236ec007bcca5837c1a6a4.stex" ]
 
 [params]
 
