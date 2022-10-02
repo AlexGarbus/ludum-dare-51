@@ -5,7 +5,7 @@
 [ext_resource path="res://actors/enemy/crate_fist.png" type="Texture" id=3]
 [ext_resource path="res://user_interface/scene_change_label/scene_change_label.tscn" type="PackedScene" id=4]
 
-[node name="TenSecBox" type="Control"]
+[node name="Title" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
