@@ -47,6 +47,8 @@ namespace LudumDare51.Actors
 
         protected AnimationPlayer _animationPlayer;
 
+        protected CollisionShape2D _bodyShape;
+
         protected FightData _fightData;
 
         protected Position2D _fistPivot;
@@ -63,6 +65,7 @@ namespace LudumDare51.Actors
         public override void _Ready()
         {
             _animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
+            _bodyShape = GetNode<CollisionShape2D>("%BodyShape");
             _fightData = GetNode<FightData>(AutoLoadPaths.FIGHT_DATA_PATH);
             _fistPivot = GetNode<Position2D>("%FistPivot");
             _fistShape = GetNode<CollisionShape2D>("%FistShape");
@@ -87,6 +90,7 @@ namespace LudumDare51.Actors
         {
             _state = State.IDLE;
 
+            _bodyShape.SetDeferred("disabled", false);
             _fistShape.SetDeferred("disabled", true);
         }
 
@@ -116,7 +120,7 @@ namespace LudumDare51.Actors
             _state = State.DEFEAT;
             _animationPlayer.Play("defeat");
 
-            GetNode<CollisionShape2D>("%CollisionShape2D").SetDeferred("disabled", true);
+            _bodyShape.SetDeferred("disabled", true);
         }
 
         protected void FlipFistPivot(bool isFlipped)

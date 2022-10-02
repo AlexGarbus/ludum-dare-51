@@ -34,6 +34,8 @@ namespace LudumDare51.Actors
             _state = State.PUNCH;
             _animationPlayer.Play("windup");
 
+            _bodyShape.SetDeferred("disabled", true);
+
             SceneTreeTween tween = CreateTween();
             tween.TweenProperty(this, "position", _idlePosition + Vector2.Up * _windupDistance, _windupTime);
             tween.TweenCallback(this, nameof(Punch), new Godot.Collections.Array(Vector2.Down));
