@@ -102,7 +102,7 @@ namespace LudumDare51.Actors
             return tween;
         }
 
-        protected void Idle()
+        protected virtual void Idle()
         {
             _state = State.IDLE;
 
@@ -110,7 +110,7 @@ namespace LudumDare51.Actors
             _fistShape.SetDeferred("disabled", true);
         }
 
-        protected void Punch(Vector2 direction)
+        protected virtual void Punch(Vector2 direction)
         {
             _state = State.PUNCH;
             _animationPlayer.Play("punch", _punchTime);
@@ -123,7 +123,7 @@ namespace LudumDare51.Actors
             MoveTween = CreatePingPongMoveTween(_punchDistance * direction, _punchTime);
         }
 
-        protected void Knockback(Vector2 direction)
+        protected virtual void Knockback(Vector2 direction)
         {
             _state = State.KNOCKBACK;
             _animationPlayer.Play("knockback", _knockbackTime);
@@ -131,7 +131,7 @@ namespace LudumDare51.Actors
             MoveTween = CreatePingPongMoveTween(_knockbackDistance * direction, _knockbackTime);
         }
 
-        protected void Defeat()
+        protected virtual void Defeat()
         {
             _state = State.DEFEAT;
             _animationPlayer.Play("defeat");

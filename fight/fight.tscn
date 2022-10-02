@@ -25,10 +25,8 @@ z_index = 2
 
 [node name="Enemy" parent="." instance=ExtResource( 2 )]
 unique_name_in_owner = true
-position = Vector2( 960, 350 )
+position = Vector2( 959, 350 )
 z_index = -1
-_idleToPunchChance = 100
-_knockbackToPunchChance = 5
 
 [node name="FightDisplay" parent="." instance=ExtResource( 4 )]
 unique_name_in_owner = true

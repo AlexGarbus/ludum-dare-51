@@ -5,10 +5,10 @@ namespace LudumDare51.Actors
 {
     public class Enemy : Actor
     {
-        [Export(PropertyHint.Range, "0,100,or_greater")]
+        [Export(PropertyHint.Range, "1,100,or_greater")]
         private int _idleToPunchChance = 100;
 
-        [Export(PropertyHint.Range, "0,100,or_greater")]
+        [Export(PropertyHint.Range, "1,100,or_greater")]
         private int _knockbackToPunchChance = 5;
 
         [Export(PropertyHint.Range, "0,100,or_greater")]
@@ -32,6 +32,13 @@ namespace LudumDare51.Actors
             }
         }
 
+        protected override void Knockback(Vector2 direction)
+        {
+            base.Knockback(direction);
+
+            MoveTween.TweenCallback(this, nameof(DetermineKnockbackToPunch));
+        }
+
         private void WindupPunch()
         {
             _state = State.PUNCH;
@@ -42,6 +49,14 @@ namespace LudumDare51.Actors
             MoveTween = CreateTween();
             MoveTween.TweenProperty(this, "position", _idlePosition + Vector2.Up * _windupDistance, _windupTime);
             MoveTween.TweenCallback(this, nameof(Punch), new Godot.Collections.Array(Vector2.Down));
+        }
+
+        private void DetermineKnockbackToPunch()
+        {
+            if (GD.Randi() % _knockbackToPunchChance == 0)
+            {
+                WindupPunch();
+            }
         }
     }
 }
