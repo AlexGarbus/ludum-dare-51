@@ -65,8 +65,8 @@ namespace LudumDare51.Actors
             _fistPivot = GetNode<Position2D>("%FistPivot");
 
             _idlePosition = Position;
-            Health += _healAmount;
             _maxHealth = FightData.MAX_HEALTH;
+            Health += _healAmount;
 
             Connect("area_entered", this, nameof(OnAreaEntered));
         }
