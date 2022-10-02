@@ -1,8 +1,7 @@
+using Godot;
 using LudumDare51.Actors;
 using LudumDare51.AutoLoad;
 using LudumDare51.UserInterface;
-using Godot;
-using System;
 
 namespace LudumDare51.GameScenes
 {

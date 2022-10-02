@@ -1,6 +1,5 @@
-using LudumDare51.AutoLoad;
 using Godot;
-using System;
+using LudumDare51.AutoLoad;
 
 namespace LudumDare51.Actors
 {

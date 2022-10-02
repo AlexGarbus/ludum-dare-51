@@ -1,6 +1,5 @@
-using LudumDare51.Saving;
 using Godot;
-using System;
+using LudumDare51.Saving;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
