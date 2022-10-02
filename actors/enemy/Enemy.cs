@@ -6,7 +6,10 @@ namespace LudumDare51.Actors
     public class Enemy : Actor
     {
         [Export(PropertyHint.Range, "0,100,or_greater")]
-        private int _punchChance = 100;
+        private int _idleToPunchChance = 100;
+
+        [Export(PropertyHint.Range, "0,100,or_greater")]
+        private int _knockbackToPunchChance = 5;
 
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _windupDistance;
@@ -23,7 +26,7 @@ namespace LudumDare51.Actors
 
         public override void _Process(float delta)
         {
-            if (_state == State.IDLE && GD.Randi() % _punchChance == 0)
+            if (_state == State.IDLE && GD.Randi() % _idleToPunchChance == 0)
             {
                 WindupPunch();
             }
@@ -36,9 +39,9 @@ namespace LudumDare51.Actors
 
             _bodyShape.SetDeferred("disabled", true);
 
-            SceneTreeTween tween = CreateTween();
-            tween.TweenProperty(this, "position", _idlePosition + Vector2.Up * _windupDistance, _windupTime);
-            tween.TweenCallback(this, nameof(Punch), new Godot.Collections.Array(Vector2.Down));
+            MoveTween = CreateTween();
+            MoveTween.TweenProperty(this, "position", _idlePosition + Vector2.Up * _windupDistance, _windupTime);
+            MoveTween.TweenCallback(this, nameof(Punch), new Godot.Collections.Array(Vector2.Down));
         }
     }
 }

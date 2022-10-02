@@ -43,6 +43,19 @@ namespace LudumDare51.Actors
             }
         }
 
+        protected SceneTreeTween MoveTween
+        {
+            get { return _moveTween; }
+            set
+            {
+                if (_moveTween != null)
+                {
+                    _moveTween.Kill();
+                }
+                _moveTween = value;
+            }
+        }
+
         protected State _state = State.IDLE;
 
         protected AnimationPlayer _animationPlayer;
@@ -62,6 +75,8 @@ namespace LudumDare51.Actors
 
         private CollisionShape2D _fistShape;
 
+        private SceneTreeTween _moveTween;
+
         public override void _Ready()
         {
             _animationPlayer = GetNode<AnimationPlayer>("%AnimationPlayer");
@@ -77,13 +92,14 @@ namespace LudumDare51.Actors
             Connect("area_entered", this, nameof(OnAreaEntered));
         }
         
-        protected void Move(Vector2 displacement, float time)
+        protected SceneTreeTween CreatePingPongMoveTween(Vector2 displacement, float time)
         {
             SceneTreeTween tween = CreateTween();
             tween.TweenProperty(this, "position", _idlePosition + displacement, time);
             tween.TweenCallback(_animationPlayer, "play", new Godot.Collections.Array("idle", time));
             tween.TweenProperty(this, "position", _idlePosition, time);
             tween.TweenCallback(this, nameof(Idle));
+            return tween;
         }
 
         protected void Idle()
@@ -104,7 +120,7 @@ namespace LudumDare51.Actors
 
             _fistShape.SetDeferred("disabled", false);
 
-            Move(_punchDistance * direction, _punchTime);
+            MoveTween = CreatePingPongMoveTween(_punchDistance * direction, _punchTime);
         }
 
         protected void Knockback(Vector2 direction)
@@ -112,7 +128,7 @@ namespace LudumDare51.Actors
             _state = State.KNOCKBACK;
             _animationPlayer.Play("knockback", _knockbackTime);
 
-            Move(_knockbackDistance * direction, _knockbackTime);
+            MoveTween = CreatePingPongMoveTween(_knockbackDistance * direction, _knockbackTime);
         }
 
         protected void Defeat()

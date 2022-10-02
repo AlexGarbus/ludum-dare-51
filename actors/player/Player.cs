@@ -45,7 +45,7 @@ namespace LudumDare51.Actors
             _animationPlayer.Play("dodge", _dodgeTime);
             FlipFistPivot(direction.x < 0);
 
-            Move(_dodgeDistance * direction, _dodgeTime);
+            MoveTween = CreatePingPongMoveTween(_dodgeDistance * direction, _dodgeTime);
         }
     }
 }

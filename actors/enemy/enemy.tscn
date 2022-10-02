@@ -485,15 +485,13 @@ tracks/4/keys = {
 [node name="Enemy" instance=ExtResource( 1 )]
 collision_layer = 2
 script = ExtResource( 2 )
-_punchChance = 100
+_idleToPunchChance = 100
+_knockbackToPunchChance = 5
 _windupDistance = 100.0
 _windupTime = 0.35
 
 [node name="Body" parent="." index="0"]
 texture = ExtResource( 4 )
-
-[node name="CollisionShape2D" parent="." index="1"]
-position = Vector2( 0, -51 )
 
 [node name="FistLeft" parent="FistPivot" index="0"]
 z_index = 1
