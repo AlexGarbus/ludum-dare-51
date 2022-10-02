@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://actors/Actor.cs" type="Script" id=1]
+[ext_resource path="res://actors/player/box.png" type="Texture" id=2]
+[ext_resource path="res://actors/player/box_fist.png" type="Texture" id=3]
+[ext_resource path="res://actors/punch.wav" type="AudioStream" id=5]
+[ext_resource path="res://actors/knockback.wav" type="AudioStream" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 100, 100 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 44, 45 )
+
+[node name="Actor" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+_healAmount = 3
+_punchDistance = 200.0
+_punchTime = 0.2
+_knockbackDistance = 100.0
+_knockbackTime = 0.2
+
+[node name="Body" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="BodyShape" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource( 1 )
+
+[node name="FistPivot" type="Position2D" parent="."]
+unique_name_in_owner = true
+
+[node name="FistLeft" type="Sprite" parent="FistPivot"]
+position = Vector2( -180, 0 )
+texture = ExtResource( 3 )
+flip_h = true
+
+[node name="FistRight" type="Area2D" parent="FistPivot"]
+position = Vector2( 180, 0 )
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite" type="Sprite" parent="FistPivot/FistRight"]
+texture = ExtResource( 3 )
+
+[node name="FistShape" type="CollisionShape2D" parent="FistPivot/FistRight"]
+unique_name_in_owner = true
+position = Vector2( 0, -1 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="KnockbackSound" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource( 6 )
+
+[node name="PunchSound" type="AudioStreamPlayer" parent="Sounds"]
+unique_name_in_owner = true
+stream = ExtResource( 5 )

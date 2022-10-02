@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://user_interface/labels/best_score_label/BestScoreLabel.cs" type="Script" id=1]
+[ext_resource path="res://user_interface/theme/theme.tres" type="Theme" id=2]
+
+[node name="BestScoreLabel" type="Label"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -960.0
+margin_right = 960.0
+margin_bottom = 104.0
+theme = ExtResource( 2 )
+text = "Fastest knockout: 0 rounds"
+align = 1
+valign = 1
+script = ExtResource( 1 )

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://user_interface/theme/theme.tres" type="Theme" id=1]
+[ext_resource path="res://user_interface/labels/scene_change_label/SceneChangeLabel.cs" type="Script" id=2]
+
+[node name="SceneChangeLabel" type="Label"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -306.0
+margin_top = -104.0
+margin_right = 306.0
+theme = ExtResource( 1 )
+text = "Press any button to continue."
+align = 1
+valign = 1
+script = ExtResource( 2 )
