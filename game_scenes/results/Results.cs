@@ -30,7 +30,12 @@ namespace LudumDare51.GameScenes
             _sceneChangeLabel = GetNode<SceneChangeLabel>("%SceneChangeLabel");
 
             SetResults();
-            SaveBestScore();
+
+            if (_fightData.EnemyHealth == 0)
+            {
+                SaveBestScore();
+            }
+
             _fightData.Reset();
         }
 
