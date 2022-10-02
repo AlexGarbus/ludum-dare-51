@@ -12,6 +12,11 @@ namespace LudumDare51.UserInterface
 
         public override void _UnhandledInput(InputEvent @event)
         {
+            if (@event.IsAction("quit") || @event.IsAction("fullscreen"))
+            {
+                return;
+            }    
+
             if (Visible && !_scene_loaded && IsEventKeyOrButtonPress(@event))
             {
                 _scene_loaded = true;
