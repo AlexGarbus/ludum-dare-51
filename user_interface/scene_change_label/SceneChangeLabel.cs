@@ -12,11 +12,20 @@ namespace LudumDare51.UserInterface
 
         public override void _UnhandledInput(InputEvent @event)
         {
-            if (Visible && !_scene_loaded && @event.IsPressed())
+            if (Visible && !_scene_loaded && IsEventKeyOrButtonPress(@event))
             {
                 _scene_loaded = true;
                 GetTree().ChangeScene(_scene_path);
             }
+        }
+
+        private bool IsEventKeyOrButtonPress(InputEvent @event)
+        {
+            InputEventKey inputEventKey = @event as InputEventKey;
+            InputEventJoypadButton inputEventJoypadButton = @event as InputEventJoypadButton;
+
+            return inputEventKey != null && inputEventKey.Pressed && !inputEventKey.IsEcho() 
+                || inputEventJoypadButton != null && inputEventJoypadButton.Pressed;
         }
     }
 }
