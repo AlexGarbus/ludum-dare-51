@@ -230,17 +230,18 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("FistPivot/FistLeft:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -160, 50 ) ]
+"values": [ Vector2( -160, 50 ), Vector2( -160, 25 ), Vector2( -160, 50 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("FistPivot/FistLeft:rotation_degrees")
@@ -256,15 +257,15 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("FistPivot/FistRight:position")
-tracks/2/interp = 1
+tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 160, 50 ) ]
+"values": [ Vector2( 160, 50 ), Vector2( 160, 25 ), Vector2( 160, 50 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("FistPivot/FistRight:rotation_degrees")
