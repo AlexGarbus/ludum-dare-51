@@ -30,6 +30,7 @@ namespace LudumDare51.GameScenes
             _sceneChangeLabel = GetNode<SceneChangeLabel>("%SceneChangeLabel");
 
             SetResults();
+            SaveBestScore();
             _fightData.Reset();
         }
 
@@ -44,6 +45,15 @@ namespace LudumDare51.GameScenes
             {
                 _resultsLabel.Text = _winText;
                 _winSound.Play();
+            }
+        }
+
+        private void SaveBestScore()
+        {
+            if (_fightData.Round < SaveManager.CurrentSave.BestScore)
+            {
+                SaveManager.CurrentSave.BestScore = _fightData.Round;
+                SaveManager.Save();
             }
         }
 
