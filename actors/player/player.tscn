@@ -363,6 +363,7 @@ tracks/3/keys = {
 [node name="Player" instance=ExtResource( 1 )]
 collision_layer = 1
 script = ExtResource( 2 )
+_damageTaken = 3
 _dodgeDistance = 400.0
 _dodgeTime = 0.25
 

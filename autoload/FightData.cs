@@ -5,7 +5,7 @@ namespace LudumDare51.AutoLoad
 {
     public class FightData : Node
     {
-        public const int MAX_HEALTH = 25;
+        public const int MAX_HEALTH = 27;
 
         public int PlayerHealth { get; set; } = MAX_HEALTH;
         public int EnemyHealth { get; set; } = MAX_HEALTH;

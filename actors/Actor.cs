@@ -21,6 +21,9 @@ namespace LudumDare51.Actors
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private int _healAmount;
 
+        [Export(PropertyHint.Range, "1,100,or_greater")]
+        private int _damageTaken = 1;
+
         [Export(PropertyHint.Range, "0,100,or_greater")]
         private float _punchDistance;
 
@@ -39,7 +42,7 @@ namespace LudumDare51.Actors
             set
             {
                 _health = Mathf.Clamp(value, 0, _maxHealth);
-                EmitSignal(nameof(HealthChanged), value);
+                EmitSignal(nameof(HealthChanged), _health);
             }
         }
 
@@ -155,7 +158,7 @@ namespace LudumDare51.Actors
 
         private void OnAreaEntered(Area2D area)
         {
-            Health--;
+            Health -= _damageTaken;
             if (Health == 0)
             {
                 Defeat();
