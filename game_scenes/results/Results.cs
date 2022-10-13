@@ -57,7 +57,7 @@ namespace LudumDare51.GameScenes
             if (_fightData.Round < SaveManager.CurrentSave.BestScore)
             {
                 SaveManager.CurrentSave.BestScore = _fightData.Round;
-                SaveManager.Save();
+                SaveManager.SaveCurrent();
             }
         }
 
