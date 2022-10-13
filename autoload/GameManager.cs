@@ -14,7 +14,7 @@ namespace LudumDare51.AutoLoad
 
         public override void _UnhandledInput(InputEvent @event)
         {
-            if (@event.IsActionPressed("quit"))
+            if (!OS.GetName().Equals("HTML5") && @event.IsActionPressed("quit"))
             {
                 GetTree().Quit();
             }

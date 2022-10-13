@@ -60,7 +60,7 @@ unique_name_in_owner = true
 stream = ExtResource( 5 )
 
 [node name="TitleSoundDelay" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.5
 one_shot = true
 autostart = true
 
