@@ -10,6 +10,7 @@ namespace LudumDare51.AutoLoad
         public override void _Ready()
         {
             CurrentSave = SaveLoad.Load();
+            SaveCurrent(); // TODO: Delete this
         }
 
         public static void SaveCurrent()

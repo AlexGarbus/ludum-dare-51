@@ -1,4 +1,5 @@
 using Godot;
+using System.Text;
 using System.Text.Json;
 
 namespace LudumDare51.Saving
@@ -13,7 +14,9 @@ namespace LudumDare51.Saving
             file.Open(FILE_PATH, File.ModeFlags.Write);
 
             string jsonString = JsonSerializer.Serialize(saveData);
-            file.StoreLine(jsonString);
+            byte[] raw = Encoding.ASCII.GetBytes(jsonString);
+            string base64String = Marshalls.RawToBase64(raw);
+            file.StoreLine(base64String);
 
             file.Close();
         }
@@ -29,7 +32,9 @@ namespace LudumDare51.Saving
 
             file.Open(FILE_PATH, File.ModeFlags.Read);
 
-            string jsonString = file.GetLine();
+            string base64String = file.GetLine();
+            byte[] raw = Marshalls.Base64ToRaw(base64String);
+            string jsonString = Encoding.ASCII.GetString(raw);
             SaveData saveData = JsonSerializer.Deserialize<SaveData>(jsonString);
             
             file.Close();
