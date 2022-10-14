@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Text;
 using System.Text.Json;
 
@@ -35,7 +36,17 @@ namespace LudumDare51.Saving
             string base64String = file.GetLine();
             byte[] raw = Marshalls.Base64ToRaw(base64String);
             string jsonString = Encoding.ASCII.GetString(raw);
-            SaveData saveData = JsonSerializer.Deserialize<SaveData>(jsonString);
+
+            SaveData saveData;
+
+            try
+            {
+                saveData = JsonSerializer.Deserialize<SaveData>(jsonString);
+            }
+            catch
+            {
+                saveData = new SaveData();
+            }
             
             file.Close();
             return saveData;
